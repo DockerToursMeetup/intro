@@ -1,0 +1,19 @@
+elasticsearchHost: "elasticsearch"
+elasticsearchPort: 9300
+
+server:
+  applicationConnectors:
+    - type: http
+      port: 8080
+
+  adminConnectors:
+    - type: http
+      port: 8081
+
+logging:
+  level: INFO
+  loggers:
+    io.dropwizard: INFO
+    com.ingensi: DEBUG
+  appenders:
+    - type: console
