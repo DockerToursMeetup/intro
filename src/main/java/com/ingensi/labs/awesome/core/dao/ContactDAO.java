@@ -1,6 +1,12 @@
 package com.ingensi.labs.awesome.core.dao;
 
 import com.ingensi.labs.awesome.api.Contact;
+import com.ingensi.labs.awesome.core.AwesomeException;
+import org.elasticsearch.ElasticsearchException;
+import org.elasticsearch.action.get.GetResponse;
+import org.elasticsearch.action.search.SearchResponse;
+import org.elasticsearch.client.Client;
+import org.elasticsearch.index.query.QueryBuilders;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,17 +16,64 @@ import java.util.List;
  */
 public class ContactDAO {
 
-    public List<Contact> list() {
-        ArrayList<Contact> contacts = new ArrayList<Contact>();
-        contacts.add(new Contact("fakeId1", "fakeFirstName1", "fakeLastName1"));
-        contacts.add(new Contact("fakeId2", "fakeFirstName2", "fakeLastName2"));
-        contacts.add(new Contact("fakeId3", "fakeFirstName3", "fakeLastName3"));
-        contacts.add(new Contact("fakeId4", "fakeFirstName4", "fakeLastName4"));
+    private final Client esClient;
+    private final String esIndex;
+    private final String esType;
 
-        return contacts;
+    public ContactDAO(Client esClient, String esIndex, String esType) {
+        this.esClient = esClient;
+        this.esIndex = esIndex;
+        this.esType = esType;
     }
 
-    public Contact get(String id) {
-        return new Contact("fakeId1", "fakeFirstName", "fakeLastName");
+    /**
+     * List contacts.
+     *
+     * @return All stored contacts.
+     */
+    public List<Contact> list() throws AwesomeException {
+        try {
+            ArrayList<Contact> contacts = new ArrayList<>();
+
+            SearchResponse response = esClient.prepareSearch(esIndex)
+                    .setTypes(esType)
+                    .setQuery(QueryBuilders.matchAllQuery())
+                    .execute()
+                    .actionGet();
+
+            response.getHits().forEach(hit -> contacts.add(
+                    new Contact(
+                            hit.getId(),
+                            (String) hit.getSource().get("firstname"),
+                            (String) hit.getSource().get("lastname")
+                    )
+            ));
+
+            return contacts;
+        } catch (ElasticsearchException e) {
+            throw new AwesomeException(e);
+        }
+    }
+
+    /**
+     * Get a contact.
+     *
+     * @param id Id of the contact.
+     * @return The contact.
+     */
+    public Contact get(String id) throws AwesomeException {
+        try {
+            GetResponse response = esClient.prepareGet(esIndex, esType, id)
+                    .execute()
+                    .actionGet();
+
+            return new Contact(
+                    response.getId(),
+                    (String) response.getSource().get("firstname"),
+                    (String) response.getSource().get("lastname")
+            );
+        } catch (ElasticsearchException e) {
+            throw new AwesomeException(e);
+        }
     }
 }

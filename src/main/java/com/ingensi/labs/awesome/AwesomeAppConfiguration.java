@@ -16,11 +16,21 @@ public class AwesomeAppConfiguration extends Configuration {
     @NotNull
     private final Integer elasticsearchPort;
 
+    @NotEmpty
+    private final String index;
+
+    @NotEmpty
+    private final String type;
+
     public AwesomeAppConfiguration(
             @JsonProperty("elasticsearchHost") String elasticsearchHost,
-            @JsonProperty("elasticsearchPort") Integer elasticsearchPort) {
+            @JsonProperty("elasticsearchPort") Integer elasticsearchPort,
+            @JsonProperty("index") String index,
+            @JsonProperty("port") String type) {
         this.elasticsearchHost = elasticsearchHost;
         this.elasticsearchPort = elasticsearchPort;
+        this.index = index;
+        this.type = type;
     }
 
 
@@ -34,4 +44,13 @@ public class AwesomeAppConfiguration extends Configuration {
         return elasticsearchPort;
     }
 
+    @JsonProperty
+    public String getIndex() {
+        return index;
+    }
+
+    @JsonProperty
+    public String getType() {
+        return type;
+    }
 }

@@ -1,4 +1,4 @@
-elasticsearchHost: "localhost"
+elasticsearchHost: "elasticsearch"
 elasticsearchPort: 9300
 
 index: "awesome"
