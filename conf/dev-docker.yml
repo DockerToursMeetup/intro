@@ -1,5 +1,6 @@
 elasticsearchHost: "elasticsearch"
 elasticsearchPort: 9300
+elasticsearchCluster: "elasticsearch-prod"
 
 index: "awesome"
 type: "contact"

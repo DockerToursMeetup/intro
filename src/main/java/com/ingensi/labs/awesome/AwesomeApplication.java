@@ -13,6 +13,8 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.client.transport.TransportClient;
+import org.elasticsearch.common.settings.ImmutableSettings;
+import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
 
 import java.net.InetAddress;
@@ -36,7 +38,7 @@ public class AwesomeApplication extends Application<AwesomeAppConfiguration> {
         //////////////////
 
         // create elasticsearch client
-        Client esClient = getEsClient(configuration.getElasticsearchHost(), configuration.getElasticsearchPort());
+        Client esClient = getEsClient(configuration.getElasticsearchHost(), configuration.getElasticsearchPort(), configuration.getElasticsearchCluster());
 
         // create DAOs
         ContactDAO contactDAO = new ContactDAO(esClient, configuration.getIndex(), configuration.getType());
@@ -69,8 +71,10 @@ public class AwesomeApplication extends Application<AwesomeAppConfiguration> {
         return hostname;
     }
 
-    private Client getEsClient(String host, Integer port) {
-        return new TransportClient()
+    private Client getEsClient(String host, Integer port, String elasticsearch) {
+        Settings settings = ImmutableSettings.settingsBuilder()
+                .put("cluster.name", elasticsearch).build();
+        return new TransportClient(settings)
                 .addTransportAddress(new InetSocketTransportAddress(host, port));
     }
 
