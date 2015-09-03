@@ -1,0 +1,35 @@
+elasticsearch:
+        image: docker.meetup.com/docker-meetup/elasticsearch:1.0
+        container_name: elasticsearch-prod-01
+        restart: always
+        hostname: elasticsearch-prod-01
+        volumes:
+        - /var/log/elasticsearch:/usr/share/elasticsearch/logs
+        - /data/:/usr/share/elasticsearch/data
+        
+        
+
+awesome:
+        image: docker.meetup.com/docker-meetup/awesome:1.0
+        container_name: awesome
+        restart: always
+        hostname: awesome
+        volumes:
+        - /var/log/awesome/:/app/logs/
+        ports:
+        - "8080:8080"
+        - "8081:8081"
+        links:
+        - elasticsearch:elastisearch-prod-01
+
+load:
+        image: docker.meetup.com/docker-meetup/elasticsearch-load:1.0
+        container_name: elasticsearch-load
+        net: "container:elasticsearch"
+        volumes:
+        - ../data/sample.bulk:/data/sample.bulk
+        volumes_from:
+        - elasticsearch 
+
+
+

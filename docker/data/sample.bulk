@@ -1,0 +1,48 @@
+{ "index" : { "_index" : "awesome", "_type" : "contact", "_id" : "1" } }
+{ "lastname" : "Gerald", "firstname" : "Crawford" }
+{ "index" : { "_index" : "awesome", "_type" : "contact", "_id" : "2" } }
+{ "lastname" : "Oscar", "firstname" : "Cain" }
+{ "index" : { "_index" : "awesome", "_type" : "contact", "_id" : "3" } }
+{ "lastname" : "Oliver", "firstname" : "Gray" }
+{ "index" : { "_index" : "awesome", "_type" : "contact", "_id" : "4" } }
+{ "lastname" : "Noel", "firstname" : "Black" }
+{ "index" : { "_index" : "awesome", "_type" : "contact", "_id" : "5" } }
+{ "lastname" : "Rebecca", "firstname" : "Mcgee" }
+{ "index" : { "_index" : "awesome", "_type" : "contact", "_id" : "6" } }
+{ "lastname" : "Dean", "firstname" : "Young" }
+{ "index" : { "_index" : "awesome", "_type" : "contact", "_id" : "7" } }
+{ "lastname" : "Eddie", "firstname" : "Cox" }
+{ "index" : { "_index" : "awesome", "_type" : "contact", "_id" : "8" } }
+{ "lastname" : "Forrest", "firstname" : "Wilson" }
+{ "index" : { "_index" : "awesome", "_type" : "contact", "_id" : "9" } }
+{ "lastname" : "Tommie", "firstname" : "Burgess" }
+{ "index" : { "_index" : "awesome", "_type" : "contact", "_id" : "10" } }
+{ "lastname" : "Robert", "firstname" : "Colon" }
+{ "index" : { "_index" : "awesome", "_type" : "contact", "_id" : "11" } }
+{ "lastname" : "Charlotte", "firstname" : "Henderson" }
+{ "index" : { "_index" : "awesome", "_type" : "contact", "_id" : "12" } }
+{ "lastname" : "Maurice", "firstname" : "Brady" }
+{ "index" : { "_index" : "awesome", "_type" : "contact", "_id" : "13" } }
+{ "lastname" : "Ralph", "firstname" : "Higgins" }
+{ "index" : { "_index" : "awesome", "_type" : "contact", "_id" : "14" } }
+{ "lastname" : "Allen", "firstname" : "Page" }
+{ "index" : { "_index" : "awesome", "_type" : "contact", "_id" : "15" } }
+{ "lastname" : "Kerry", "firstname" : "Bell" }
+{ "index" : { "_index" : "awesome", "_type" : "contact", "_id" : "16" } }
+{ "lastname" : "Eric", "firstname" : "Schwartz" }
+{ "index" : { "_index" : "awesome", "_type" : "contact", "_id" : "17" } }
+{ "lastname" : "Traci", "firstname" : "Wolfe" }
+{ "index" : { "_index" : "awesome", "_type" : "contact", "_id" : "18" } }
+{ "lastname" : "Gretchen", "firstname" : "Ramsey" }
+{ "index" : { "_index" : "awesome", "_type" : "contact", "_id" : "19" } }
+{ "lastname" : "Lucas", "firstname" : "Gibson" }
+{ "index" : { "_index" : "awesome", "_type" : "contact", "_id" : "20" } }
+{ "lastname" : "Marta", "firstname" : "Myers" }
+{ "index" : { "_index" : "awesome", "_type" : "contact", "_id" : "21" } }
+{ "lastname" : "Sherri", "firstname" : "Fields" }
+{ "index" : { "_index" : "awesome", "_type" : "contact", "_id" : "22" } }
+{ "lastname" : "Enrique", "firstname" : "Marsh" }
+{ "index" : { "_index" : "awesome", "_type" : "contact", "_id" : "23" } }
+{ "lastname" : "Tami", "firstname" : "Douglas" }
+{ "index" : { "_index" : "awesome", "_type" : "contact", "_id" : "24" } }
+{ "lastname" : "Santiago", "firstname" : "Hunt" }
