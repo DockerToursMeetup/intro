@@ -1,7 +1,6 @@
 elasticsearch:
         image: docker-meetup/elasticsearch:1.0
         container_name: elasticsearch-prod-01
-        restart: always
         hostname: elasticsearch-prod-01
         volumes:
         - /var/log/elasticsearch:/usr/share/elasticsearch/logs
@@ -12,7 +11,6 @@ elasticsearch:
 awesome:
         image: docker-meetup/awesome:1.0
         container_name: awesome
-        restart: always
         hostname: awesome
         volumes:
         - /var/log/awesome/:/app/logs/
