@@ -21,7 +21,7 @@ awesome:
         - elasticsearch:elastisearch-prod-01
 
 load:
-        image: docker.meetup.com/docker-meetup/elasticsearch-load:1.0
+        image: docker-meetup/elasticsearch-load:1.0
         container_name: elasticsearch-load
         net: "container:elasticsearch"
         volumes:
