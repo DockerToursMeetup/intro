@@ -1,7 +1,6 @@
 FROM java:8-jre
 MAINTAINER DockerMeetup DockerMeetup.com  "Docker@Meetup.com"
 
-LABEL SERVICE="awesome-app"
 
 RUN mkdir -p /app/logs
 

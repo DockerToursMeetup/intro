@@ -1,5 +1,5 @@
 elasticsearch:
-        image: docker.meetup.com/docker-meetup/elasticsearch:1.0
+        image: docker-meetup/elasticsearch:1.0
         container_name: elasticsearch-prod-01
         restart: always
         hostname: elasticsearch-prod-01
@@ -10,7 +10,7 @@ elasticsearch:
         
 
 awesome:
-        image: docker.meetup.com/docker-meetup/awesome:1.0
+        image: docker-meetup/awesome:1.0
         container_name: awesome
         restart: always
         hostname: awesome
