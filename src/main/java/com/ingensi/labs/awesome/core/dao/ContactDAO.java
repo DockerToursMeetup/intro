@@ -45,8 +45,8 @@ public class ContactDAO {
                     new Contact(
                             hit.getId(),
                             (String) hit.getSource().get("firstname"),
-                            (String) hit.getSource().get("lastname")
-                    )
+                            (String) hit.getSource().get("lastname"),
+                            (String) hit.getSource().get("phone"))
             ));
 
             return contacts;
@@ -70,8 +70,8 @@ public class ContactDAO {
             return new Contact(
                     response.getId(),
                     (String) response.getSource().get("firstname"),
-                    (String) response.getSource().get("lastname")
-            );
+                    (String) response.getSource().get("lastname"),
+                    (String) response.getSource().get("phone"));
         } catch (ElasticsearchException e) {
             throw new AwesomeException(e);
         }
